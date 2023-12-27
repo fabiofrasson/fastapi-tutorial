@@ -1,7 +1,6 @@
 # Rodar o projeto
 1. Navegar até a pasta raiz do projeto, `fastapi-tutorial`
-2. Rodar o comando:
-    uvicorn `main:app --reload`
+2. Rodar o comando `uvicorn blog.main:app --reload`
 
 # Configuração do modo debug
 
