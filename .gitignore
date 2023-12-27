@@ -2,4 +2,4 @@ __pycache__/
 fastapi-venv
 .vscode
 .DS_Store
-blog-env
+blog-env/
