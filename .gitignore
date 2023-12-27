@@ -1,0 +1,4 @@
+__pycache__
+fastapi-venv
+.vscode
+.DS_Store
