@@ -52,7 +52,3 @@ class Blog(BaseModel):
 def create_blog_post(blog: Blog):
     # string formatada, utilizando os valores enviados na requisição
     return {"data": f"Blog post was created with title: {blog.title}"}
-
-
-if __name__ == "__main__":
-    uvicorn.run(app, host="127.0.0.1", port=9000)
