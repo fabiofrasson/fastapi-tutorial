@@ -1,6 +1,8 @@
 # Rodar o projeto
 1. Navegar até a pasta raiz do projeto, `fastapi-tutorial`
-2. Rodar o comando `uvicorn blog.main:app --reload`
+2. Rodar o comando `pip install -r requirements.txt` para instalar as dependêcias do projeto
+3. Subir a aplicação com o comando `uvicorn blog.main:app --reload`
+4. Caso queira exportar as bibliotecas e versões atuais do projeto, utilizar `pip freeze > nome_arquivo.txt`. O arquivo `requirements-dev.txt` foi gerado a partir desse mesmo comando.
 
 # Configuração do modo debug
 
