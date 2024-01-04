@@ -25,6 +25,13 @@ def create_blog(request: schemas.Blog, db: Session = Depends(get_db)):
     return new_blog  # retonar o blog recém criado
 
 
+@app.delete("/blog/{id}", status_code=status.HTTP_204_NO_CONTENT)
+def delete_blog(id, db: Session = Depends(get_db)):
+    db.query(models.Blog).filter(models.Blog.id == id).delete(synchronize_session=False)
+    db.commit()
+    return {"message": f"Blog with id {id} was deleted"}
+
+
 @app.get("/blog")
 def get_all_blogs(db: Session = Depends(get_db)):
     blogs = db.query(models.Blog).all()  # query para retornar todos os blogs
