@@ -40,3 +40,4 @@ db.query(models.Blog).filter(models.Blog.id == id).update(request.dict())
 class Config:
         orm_mode = True
 ``` 
+- Caso prefira setar as versões das libs do projeto, é possível utilizar o comando `pip freeze`, contido [neste artigo](https://note.nkmk.me/en/python-pip-install-requirements/#:~:text=First%2C%20redirect%20the%20output%20of,a%20file%20named%20requirements.txt%20.&text=Next%2C%20copy%20or%20move%20this,it%20to%20install%20the%20packages.&text=By%20following%20these%20steps%2C%20you,from%20one%20environment%20to%20another).
