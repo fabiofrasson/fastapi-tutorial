@@ -19,7 +19,7 @@ SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 # Declarando uma classe Base para ser usada na definição de modelos
 Base = declarative_base()
 
-        # Explicando cada parte:
+# Explicando cada parte:
 
 # - `create_engine`: Cria um objeto Engine que representa a interface entre o aplicativo e o banco de dados.
 # - `SQLALCHEMY_DATABASE_URL`: A URL de conexão com o banco de dados SQLite.
