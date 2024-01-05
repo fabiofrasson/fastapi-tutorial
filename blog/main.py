@@ -1,3 +1,4 @@
+from typing import List
 from fastapi import FastAPI, Depends, status, Response, HTTPException
 from . import schemas, models
 from .database import engine, SessionLocal
@@ -49,13 +50,15 @@ def update_blog(id, request: schemas.Blog, db: Session = Depends(get_db)):
     return {"message": f"Blog with id {id} was updated"}
 
 
-@app.get("/blog")
+@app.get("/blog", response_model=List[schemas.BlogResponse])
 def get_all_blogs(db: Session = Depends(get_db)):
     blogs = db.query(models.Blog).all()  # query para retornar todos os blogs
     return blogs
 
 
-@app.get("/blog/{id}", status_code=status.HTTP_200_OK)
+@app.get(
+    "/blog/{id}", status_code=status.HTTP_200_OK, response_model=schemas.BlogResponse
+)
 def get_blog_by_id(id, response: Response, db: Session = Depends(get_db)):
     blog = db.query(models.Blog).filter(models.Blog.id == id).first()
     if not blog:

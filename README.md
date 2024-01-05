@@ -34,3 +34,6 @@ O método atual para upserts e deletes é [este](https://docs.sqlalchemy.org/en/
 
 `Update - When using db.query(models.Blog).filter(models.Blog.id == id).update(request) you are saying to attempt and update every item that would be passed in the request. In doing this you allow it to attempt and change attributes that have no data or attributes that you may not think exist. This is what causes the crash here (again hidden by --reload). You can fix this with a minor change to the statement -> 
 db.query(models.Blog).filter(models.Blog.id == id).update(request.dict())`
+- a configuração de ORM Mode (abaixo) no schema 'BlogResponse' não foi necessária. A chamada funcionou normalmente apenas deixando o conteúdo do schema como `pass`.
+```class Config:
+        orm_mode = True``` 
