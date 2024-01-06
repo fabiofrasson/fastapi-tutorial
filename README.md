@@ -49,7 +49,7 @@ class Config:
 >        @staticmethod def f(arg1, arg2, argN):
 >        ...
 >```
-- O erro abaixo foi gerado na hora de criar um blog após criado o relaciomanento entre blog e user. Mesmo adicionando o `user_id` hard-coded na requisição, o erro persistiu.
->File "C:\dev\pti\fastapi-tutorial\blog-env\Lib\site-packages\sqlalchemy\orm\mapper.py", line 2507, in get_property
->    raise sa_exc.InvalidRequestError(
-sqlalchemy.exc.InvalidRequestError: Mapper 'Mapper[User(users)]' has no property 'author'.  If this property was indicated from other mappers or configure events, ensure registry.configure() has been called.
+- A configuração 'orm_mode' em schemas foi atualizada para 'from_attributes':
+>UserWarning: Valid config keys have changed in V2:    
+>* 'orm_mode' has been renamed to 'from_attributes'
+  warnings.warn(message, UserWarning)

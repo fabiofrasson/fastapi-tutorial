@@ -9,7 +9,7 @@ class BlogBase(BaseModel):
 
 class Blog(BlogBase):
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 class User(BaseModel):
@@ -26,7 +26,7 @@ class UserResponse(BaseModel):
     blogs: List[Blog] = []
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 # schema para retorno nas chamadas de criação no CRUD
@@ -37,4 +37,4 @@ class BlogResponse(BaseModel):
     author: UserResponse
 
     class Config:
-        orm_mode = True
+        from_attributes = True

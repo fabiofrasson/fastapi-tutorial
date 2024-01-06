@@ -19,6 +19,15 @@ SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 # Declarando uma classe Base para ser usada na definição de modelos
 Base = declarative_base()
 
+
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
+
+
 # Explicando cada parte:
 
 # - `create_engine`: Cria um objeto Engine que representa a interface entre o aplicativo e o banco de dados.
