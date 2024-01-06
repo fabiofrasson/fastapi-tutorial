@@ -41,3 +41,15 @@ class Config:
         orm_mode = True
 ``` 
 - Caso prefira setar as versões das libs do projeto, é possível utilizar o comando `pip freeze`, contido [neste artigo](https://note.nkmk.me/en/python-pip-install-requirements/#:~:text=First%2C%20redirect%20the%20output%20of,a%20file%20named%20requirements.txt%20.&text=Next%2C%20copy%20or%20move%20this,it%20to%20install%20the%20packages.&text=By%20following%20these%20steps%2C%20you,from%20one%20environment%20to%20another).
+- Foi criada uma classe (hashing.py) reponsável pela encriptação da senha na criação de usuário. O Sonarlint sugeriu converter a função principal para um método estático para não precisar indicar um primeiro argumento implícito: 
+> Convert a function to be a static method. A static method does not receive an implicit first argument.
+>To declare a static method, use this idiom:
+>```
+>class C:
+>        @staticmethod def f(arg1, arg2, argN):
+>        ...
+>```
+- O erro abaixo foi gerado na hora de criar um blog após criado o relaciomanento entre blog e user. Mesmo adicionando o `user_id` hard-coded na requisição, o erro persistiu.
+>File "C:\dev\pti\fastapi-tutorial\blog-env\Lib\site-packages\sqlalchemy\orm\mapper.py", line 2507, in get_property
+>    raise sa_exc.InvalidRequestError(
+sqlalchemy.exc.InvalidRequestError: Mapper 'Mapper[User(users)]' has no property 'author'.  If this property was indicated from other mappers or configure events, ensure registry.configure() has been called.

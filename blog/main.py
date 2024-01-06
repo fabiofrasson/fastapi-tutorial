@@ -2,7 +2,7 @@ from typing import List
 from fastapi import FastAPI, Depends, status, Response, HTTPException
 from . import schemas, models
 from .database import engine, SessionLocal
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, relationship
 from .hashing import Hash
 
 tags_metadata = [
@@ -29,7 +29,7 @@ def get_db():
 
 @app.post("/blog", status_code=status.HTTP_201_CREATED, tags=["Blogs"])
 def create_blog(request: schemas.Blog, db: Session = Depends(get_db)):
-    new_blog = models.Blog(title=request.title, body=request.body)
+    new_blog = models.Blog(title=request.title, body=request.body, user_id=1)
     db.add(new_blog)  # adicionar novo blog
     db.commit()  # enviar as alterações
     db.refresh(new_blog)  # refresh no banco para refletir as alterações
