@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from . import models
 from .database import engine
-from .routers import blog, user
+from .routers import blog, user, authentication
 
 tags_metadata = [
     {
@@ -9,9 +9,11 @@ tags_metadata = [
         "description": "Operations with users.",
     },
     {"name": "Blogs", "description": "Manage blogs."},
+    {"name": "Authentication", "description": "Authentication"},
 ]
 
 app = FastAPI()
+app.include_router(authentication.router)
 app.include_router(blog.router)
 app.include_router(user.router)
 
