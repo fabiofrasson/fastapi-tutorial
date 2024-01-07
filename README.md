@@ -50,6 +50,12 @@ class Config:
 >        ...
 >```
 - A configuração 'orm_mode' em schemas foi atualizada para 'from_attributes':
->UserWarning: Valid config keys have changed in V2:    
+>UserWarning: Valid config keys have changed in V2:
 >* 'orm_mode' has been renamed to 'from_attributes'
   warnings.warn(message, UserWarning)
+- Aproximadamente em [3:45 de vídeo](https://youtu.be/7t2alSnE2-I?si=5ZHwRqr511yBrAcc&t=13551), quando a autenticação é testada na documentação OpenAPI, a aplicação lançou um erro:
+>RuntimeError: Form data requires "python-multipart" to be installed.    
+>You can install "python-multipart" with:
+>pip install python-multipart
+
+Esse erro foi corrigido adicionando-se a lib sugerida em requirements e rodando o comando para instalar suas dependências: `pip3 install -r requirements.txt`.
