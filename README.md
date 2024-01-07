@@ -59,3 +59,9 @@ class Config:
 >pip install python-multipart
 
 Esse erro foi corrigido adicionando-se a lib sugerida em requirements e rodando o comando para instalar suas dependências: `pip3 install -r requirements.txt`.
+
+# Próximos passos
+
+1. Refatorar o projeto considerando boas práticas para o framework/linguagem;
+2. Verificar os templates presentes na [documentação](https://fastapi.tiangolo.com/project-generation/), e organizar próximos projetos de maneira similar.
+3. Inteirar-se sobre como é feito um deploy.
